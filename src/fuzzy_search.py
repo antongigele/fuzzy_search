@@ -4,7 +4,7 @@ import sys
 sys.path.append(append_path)
 from load_data import load_json2data, load_csv2list
 import math
-from spellcheck import pornstar_names, studios_names
+from dictionary import word_list
 
 ## Load occurences count dict
 all_words_count_dict = load_json2data(data_source_path, "all_words_count_dict.json")
@@ -12,8 +12,7 @@ all_words_count_dict = load_json2data(data_source_path, "all_words_count_dict.js
 ## Load target list
 final_target_list = load_csv2list(data_source_path, "final_target_list.csv")
 
-space_names = list(pornstar_names) + list(studios_names)
-space_names = [name for name in space_names if " " in name.strip()]
+word_list = [name for name in word_list if " " in name.strip()]
 
 def get_closest_match(query_input, target_list, all_words_occurences_dict):
     target_list = [w.lower() for w in target_list]
@@ -72,7 +71,7 @@ def get_closest_match1space(query_input, target_list, all_words_occurences_dict)
 def get_closest_match_combined(query_input, target_list, all_words_occurences_dict):
     if " " in query_input:
         print("space in query")
-        candidate_list = [get_closest_match1space(query_input, space_names, all_words_occurences_dict)]
+        candidate_list = [get_closest_match1space(query_input, word_list, all_words_occurences_dict)]
     else:
         single_word_output = get_closest_match(query_input, target_list, all_words_occurences_dict)
         two_words_with_space_output = get_closest_match1space(query_input, target_list, all_words_occurences_dict)
