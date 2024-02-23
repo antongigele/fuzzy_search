@@ -1,4 +1,5 @@
 [project]
 name = "fuzzy_search"
+authors = [{ name = "Anton Gigele", email = "gigele.anton@gmail.com" }]
 version = "0.1"
 dependencies = ["nltk==3.8.1"]
