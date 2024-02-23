@@ -1,0 +1,4 @@
+[project]
+name = "fuzzy_search"
+version = "0.1"
+dependencies = ["nltk==3.8.1"]
