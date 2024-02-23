@@ -77,7 +77,7 @@ def get_closest_match_combined(query_input, target_list, all_words_occurences_di
         two_words_with_space_output = get_closest_match1space(query_input, target_list, all_words_occurences_dict)
         candidate_list = [single_word_output, two_words_with_space_output]
     words_weight_dict = {}
-    for word in [single_word_output, two_words_with_space_output]:
+    for word in candidate_list:
         if word not in all_words_occurences_dict:
             all_words_occurences_dict[word] = 0
         try:
